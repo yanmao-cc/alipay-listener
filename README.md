@@ -1,6 +1,10 @@
 # alipay-listener
 
-支付宝商家转账记录抓取，Mac ，Windows 都有效
+支付宝商家转账记录抓取，Mac 、Windows 都有效
+
+1分钟抓取一次可保证长时间不掉线
+
+30秒一次大概8小时会掉线
 
 #### 技术栈
 springboot2.3

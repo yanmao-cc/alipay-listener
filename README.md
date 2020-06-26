@@ -29,3 +29,6 @@ username:支付宝用户名，填写后可自动登录，不填写就手动登�
 password:支付宝密码，填写后可自动登录，不填写就手动登录
 
 api:抓取到的订单需要POST的地址
+
+#### 问题
+打包后 out/artifacts/listener_jar 目录中会出现 servelet-api-2.3.jar 会和 Tomact 冲突，需要手动删除

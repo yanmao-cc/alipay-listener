@@ -5,6 +5,7 @@ target/
 !**/src/test/**
 data/
 out/
+binary/
 ### STS ###
 .apt_generated
 .classpath

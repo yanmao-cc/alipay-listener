@@ -8,8 +8,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.quartz.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationEvent;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ContextClosedEvent;
+import org.springframework.context.event.ContextStoppedEvent;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PreDestroy;
 import java.time.LocalDateTime;
 import java.util.Random;
 
@@ -31,8 +36,13 @@ public class AlipayService {
         this.driverService = driverService;
     }
 
+    public static ChromeDriver jobDriver = null;
+    public static ChromeDriver loginDriver = null;
+
     public void start(){
+        if(loginDriver != null) loginDriver.quit();
         ChromeDriver driver = driverService.getDriver(false,false);
+        loginDriver = driver;
         try {
             if(driver == null) {
                 logger.error("启动失败，请重新启动");
@@ -62,6 +72,11 @@ public class AlipayService {
     }
 
     public void run(ChromeDriver driver){
+        if(jobDriver != null) {
+            jobDriver.quit();
+            return;
+        }
+        jobDriver = driver;
         try {
             JobDataMap dataMap = new JobDataMap();
             dataMap.put("driver", driver);
@@ -116,6 +131,18 @@ public class AlipayService {
         }else{
             WebElement submitBtn = driver.findElement(By.id("J-login-btn"));
             submitBtn.submit();
+        }
+    }
+
+    @PreDestroy
+    public void destory() throws Exception {
+        if(jobDriver != null) {
+            jobDriver.quit();
+            jobDriver = null;
+        }
+        if(loginDriver != null) {
+            loginDriver.quit();
+            loginDriver = null;
         }
     }
 

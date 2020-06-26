@@ -1,5 +1,12 @@
 # alipay-listener
 
+支付宝商家转账记录抓取，Mac ，Windows 都有效
+
+#### 技术栈
+springboot2.3
+
+selenium
+
 #### 浏览器版本
 当前浏览器驱动和版本都是使用的 Chrome 83.0.4103.106 版本
 

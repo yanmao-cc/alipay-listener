@@ -15,7 +15,7 @@
 		<lombok.version>1.18.8</lombok.version>
 		<fastjson.version>1.2.60</fastjson.version>
 		<apache.commons.version>3.10</apache.commons.version>
-		<commons.io.version>2.7</commons.io.version>
+		<commons.io.version>2.14.0</commons.io.version>
 		<selenium.version>4.0.0-alpha-6</selenium.version>
 		<itellyou.version>1.0.0-SNAPSHOT</itellyou.version>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
